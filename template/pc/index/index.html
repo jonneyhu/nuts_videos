@@ -1,0 +1,110 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="banner">
+  	<div class="swiper-container">
+    	<div class="swiper-wrapper">
+
+    		{lz:focus type="1"}
+			{volist name="data" id="value"}
+				<div class="swiper-slide"><a href="{$value['url']}"  data-background="{$value['image_url']}" class="swiper-lazy" style="background-size: cover"></a></div>
+			{/volist}
+			{/lz:focus} 
+      		
+    	</div>
+    	<div class="swiper-button-next"></div>
+    	<div class="swiper-button-prev"></div>
+    	<div class="swiper-pagination"></div>
+  	</div>
+  	<script>
+	    var swiper = new Swiper('.swiper-container', {
+	      navigation: {
+	        nextEl: '.swiper-button-next',
+	        prevEl: '.swiper-button-prev',
+	      },
+	      pagination: {
+	        el: '.swiper-pagination',
+	        clickable :true,
+	      },
+	      autoplay:true,
+	      loop : true,
+	      effect : 'fade', 
+	      lazy: {
+		    loadPrevNext: false,
+		  },
+	    });
+  	</script>
+
+  	<script type="text/javascript">
+  		$('.event-list a').hover(function(){
+  			$(this).addClass('event-in');
+  		},function(){
+  			$(this).removeClass('event-in');
+  		});
+  	</script>
+
+</div>
+<!-- BANNER结束 -->
+
+<div class="video_cate">
+	<div class="container_1200" style="border-bottom: 1px solid #eee;">
+		<ul class="nav">
+			<li class="<?php if(!$category){ echo 'on';} ?>"><a href="/">首页</a></li>
+			{volist name="categorys[0][0]" id="vo"}
+			{if condition="$categorys[$vo]['is_menu'] == 1"}
+			<li class="<?php if($vo==$top_category['id']){ echo 'on';} ?>">
+				<a href="{$categorys[$vo]['url']}">{$categorys[$vo]['name']}</a>
+				{notempty name="categorys[0][$vo]"}
+				<div class="fill"></div>
+				<div class="child_nav"><!-- 二级菜单 -->
+					{volist name="categorys[0][$vo]" id="v"}
+					{if condition="$categorys[$v]['is_menu'] == 1"}
+					<a class="<?php if($v==$category['id']){ echo 'on';} ?>" href="{$categorys[$v]['url']}">{$categorys[$v]['name']}</a><br>
+					{/if}
+					{/volist}
+				</div>
+				{/notempty}
+			</li>
+			{/if}
+			{/volist}
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="index_recommend">
+	<div class="container_1200">
+		{volist name="categorys[0][0]" id="cate_id"}
+		{if condition="$categorys[$cate_id]['is_menu'] == 1"}
+		<div class="index_recommend_tiele">{$categorys[$cate_id]['name']} <a href="{$categorys[$vo]['url']}">更多 &gt;&gt;</a></div>
+		<div class="video_list_container">
+			{lz:videos limit="5" category_id="$cate_id" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li class="trans_0_1"><a href="{$vo['url']}">
+				<div class="pic"><img src="{$vo['image_url']|thumb=260,360,3}" alt="{$vo['title']}"></div>
+				<div class="text trans_0_1">
+					<h4 class="text_ellipsis trans_0_1">{$vo['title']}</h4>
+					<p class="desc trans_0_1 text_ellipsis">{$vo['description']}</p>
+				</div>
+			</a></li>
+			{/volist}
+			{/lz:videos}
+			<div class="clear"></div>
+		</div>
+		{/if}
+	{/volist}
+	</div>
+</div>
+
+
+
+<script type="text/javascript" src="__TEMPLATE__static/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+    $("img.lazy").lazyload({
+    	effect: "fadeIn",
+    	threshold :100,
+    	skip_invisible : false
+    });
+});
+</script>
+{include file="public/footer" /}

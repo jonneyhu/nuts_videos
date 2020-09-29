@@ -1,0 +1,84 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="second_banner" style="background-image:url({$top_category['image_url']})">
+	<img src="{$top_category['image_url']}" alt="{$category['name']}">
+</div>
+<!-- BANNER结束 -->
+<!-- 面包屑导航开始 -->
+<div class="crumbs_container" id="crumbs">
+	<div class="container_1200">
+		<a href="/" class="home_icon"></a>{$breadcrumb}
+	</div>
+</div>
+<!-- 面包屑导航结束 -->
+<div class="page_block news_page">
+	<div class="container_1200">
+		<div class="second_nav">
+			{volist name="$second_categorys" id="v"}
+			{if condition="$categorys[$v['id']]['is_menu'] == 1"}
+	      	<a class="<?php if($v['id']==$category['id']){ echo 'on';} ?>" href="{$v['url']}#crumbs">{$v['name']}</a>
+	      	{/if}
+	    	{/volist}
+		</div>
+		<div class="fill_50"></div>
+		<?php $category_id =  input('param.category_id'); ?>
+		{lz:articles category_id="$category_id" var_page="page" limit="6" order="create_time desc"}
+		<ul class="ajax_lists_container">
+			{volist name="data" id="v" mod="2"}
+			<li class="trans_0_1"><a href="{$v['url']}">
+				<div class="pic"><img src="{$v['image_url']|thumb=280,170,3}" alt="{$v['title']}"></div>
+				<div class="text trans_0_1">
+					<h4 class="text_ellipsis trans_0_1">{$v['title']}</h4>
+					<p class="desc trans_0_1">{$v['description']}</p>
+				</div>
+				<div class="date trans_0_1">
+					<p class="day">{$v['create_time']|format_datetime=1,'d'}</p>
+					<p class="month">{$v['create_time']|format_datetime=1,'Y-m'}</p>
+				</div>
+			</a></li>
+			{/volist}
+		</ul>
+		<div class="pages_container">{$pages}</div>
+		{/lz:articles}
+		<div class="list_more"><span>加载更多</span></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var page = 1;
+$('.list_more').click(function(){
+	$(this).find('span').addClass('loading').text('加载中...');
+	page ++;
+	var param = {
+		category_id : "{$category_id}",
+		sort : "create_time",
+		limit : 6,
+		page : page,
+		thumb: '280,170,3'
+	};
+	$.get('{:url("get_ajax_lists")}',param,function(ret){
+		if(ret && ret.length > 0){
+			var html = '';
+			$.each(ret,function(i,item){
+				html += '<li class="trans_0_1"><a href="'+ item.url +'">'
+					+		'<div class="pic"><img src="'+ item.thumb +'" alt="'+ item.title +'"></div>'
+					+		'<div class="text trans_0_1">'
+					+			'<h4 class="text_ellipsis trans_0_1">'+ item.title +'</h4>'
+					+			'<p class="desc trans_0_1">'+ item.description +'</p>'
+					+		'</div>'
+					+		'<div class="date trans_0_1">'
+					+			'<p class="day">'+ item.create_time.substr(8,2) +'</p>'
+					+			'<p class="month">'+ item.create_time.substr(0,7) +'</p>'
+					+		'</div>'
+					+	'</a></li>'
+			})
+			$('.ajax_lists_container').append(html);
+			$('.list_more').find('span').removeClass('loading').text('加载更多');
+		}else{
+			$('.list_more').find('span').removeClass('loading').text('没有更多了');
+		}
+	})
+});
+
+</script>
+{include file="public/footer" /}

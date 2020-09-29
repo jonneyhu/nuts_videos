@@ -1,0 +1,155 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="second_banner" style="background-image:url({$category['image_url']})">
+	<img src="{$category['image_url']}" alt="{$category['name']}">
+</div>
+<!-- BANNER结束 -->
+<!-- 企业简介 -->
+<div class="page_block about_jianjie" id="about">
+	<div class="container_1200">
+		<div class="page_block_title">
+			<h3>企业简介</h3>
+			<p>我们将以诚实守信的操守、共同发展的理念，长远的眼光建立公司的品牌</p>
+		</div>
+		<div class="fill_30"></div>
+		<div class="about_pic fl"><img src="__TEMPLATE__/static/images/about_pic.jpg" alt="企业简介"></div>
+		<div class="about_text fr">
+			<h4 class="title">千度科技 灵魂网站的创造者</h4>
+			<p class="desc">郑州千度信息技术有限公司成立于2013年，是一家具有策略思维及追求设计气质的互联网品牌设计公司，主要开展业务包含：网站平台定制开发、APP原生开发、软件定制开发、小程序、微信公众号定制开发、行业解决方案、GUI桌面程序开发、MT4整套搭建、MT5整套搭建、区块链技术虚拟盘、棋牌软件开发。<br><br>千度的作品现代简洁又不失丰富和韵味。团队追求理性科学的设计方法、讲究设计策略、善于解决问题，又注重塑造品牌气质。千度具有丰富的大型企业及海内外创新风投项目服务经验，为广大客户提供专业的网站平台定制设计以及技术开发、技术维护等服务，使我们的客户可以在快速发展的信息科技领域中获得更有效的竞争力。</p>
+		</div>
+		<div class="fill_10"></div>
+	</div>
+</div>
+<!-- 员工风采 -->
+<!-- <div class="page_block about_team" id="team">
+	<div class="container_1200">
+		<div class="page_block_title page_block_title_white">
+			<h3>团队展示</h3>
+			<p>我们将以诚实守信的操守、共同发展的理念，长远的眼光建立公司的品牌</p>
+		</div>
+		<div class="fill_30"></div>
+		<div class="team_category_title">
+			<ul>
+				{volist name="categorys[0][26]" id="vo"}
+				<li class="trans_0_1 {if $i==1}on{/if}">{$categorys[$vo]['name']}</li>
+				{/volist}
+			</ul>
+		</div>
+		<div class="fill_40"></div>
+		<div class="team_category_contaienr">
+			{volist name="categorys[0][26]" id="category_id"}
+			<ul class="{if $i==1}on{/if}">
+				{lz:workers limit="4" category_id="$category_id" order="sort asc,create_time desc"}
+				{volist name="data" id="vo"}
+				<li>
+					<img class="team_img" src="{$vo['image_url']|thumb=280,300,3}" alt="{$vo['name']}">
+					<div class="name"><span>.</span><em>{$vo['name']}</em></div>
+					<div class="mask trans_0_2">
+						<p class="type">{$vo['post']}</p>
+						<p class="exp">{$vo['exp']}工作经验</p>
+						<p class="geyan">{$vo['description']}</p>
+					</div>
+				</li>
+				{/volist}
+				{/lz:workers}
+				<div class="clear"></div>
+			</ul>
+			{/volist}
+
+			
+		</div>
+		<script type="text/javascript">
+		$('.team_category_title li').mouseover(function(){
+			var	index = $('.team_category_title li').index(this);
+			$('.team_category_title li').removeClass('on');
+			$(this).addClass('on');
+			$('.team_category_contaienr ul').removeClass('on');
+			$('.team_category_contaienr ul:eq('+index+')').addClass('on');
+		})
+		</script>
+	</div>
+	<div class="fill_20"></div>
+</div> -->
+<!-- 资质荣誉 -->
+<!-- <div class="page_block about_rongyu" id="zizhi">
+	<div class="container_1200">
+		<div class="page_block_title">
+			<h3>资质荣誉</h3>
+			<p>我们将以诚实守信的操守、共同发展的理念，长远的眼光建立公司的品牌</p>
+		</div>
+		<div class="fill_30"></div>
+		<ul class="about_rongyu_container">
+			{lz:pictures limit="4" category_id="25" order="create_time desc"}
+			{volist name="data" id="v"}
+			<li>
+				<div class="pic"><img src="{$v['image_url']|thumb=380,230,3}" alt="{$v['title']}"></div>
+				<p class="title">{$v['title']}</p>
+			</li>
+			{/volist}
+			{/lz:pictures}
+			<div class="clear"></div>
+		</ul>
+		<script type="text/javascript">
+		$('.about_rongyu_container li').mouseover(function(){
+			$('.about_rongyu_container li').removeClass('on');
+			$(this).addClass('on');
+		})
+		</script>
+	</div>
+</div> -->
+<!-- 总经理致辞 -->
+<div class="page_block about_zhici"  id="zhici">
+	<div class="container_1200">
+		<div class="left fl">
+			<img class="about_zhici_title" src="__TEMPLATE__/static/images/about_zhici_title.png" alt="总经理致辞">
+			<p class="desc">首先，真诚欢迎您访问千度科技网站，衷心感谢您对我公司的关注和支持！<br><br>千度科技自2013年成立   以来，秉承“以客为尊、品质为本、诚信服务、开拓创新”的经营理念，历经六载风雨春秋。六年的跨越发展，我们已为上千家企业提供了包括网站建设、微信公众号开发、小程序开发、APP定制开发等多种互联网服务。未来，我们还将再接再厉服务更多需要结合互联网发展的企业，竭力为各大企业在互联网领域的发展，贡献自己的力量、提供更优质的服务！最后，我谨代表千度科技全体员工祝各界朋友：宏图远大、事业成功！</p>
+			<img class="about_zhici_sign" src="__TEMPLATE__/static/images/about_zhici_sign.png" alt="总经理签名">
+		</div>
+		<div class="right fr">
+			<img class="about_zhici_kuang" src="__TEMPLATE__/static/images/about_zhici_kuang.png" alt="总经理致辞">
+			<img class="about_zhici_person" src="__TEMPLATE__/static/images/about_zhici_person.jpg" alt="总经理">
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 地理位置 -->
+<div class="page_block about_map"  id="map">
+	<div class="page_block_title">
+		<h3>地理位置</h3>
+		<p>我们将以诚实守信的操守、共同发展的理念，长远的眼光建立公司的品牌</p>
+	</div>
+	<div class="fill_30"></div>
+	<iframe src="<?php echo url('index/page/index',['category_id'=>24]) ?>"></iframe>
+</div>
+<!-- 联系方式 -->
+<div class="page_block about_contact" id="contact">
+	<div class="page_block_title">
+		<h3>联系我们</h3>
+		<p>如有任何疑问请联系我们，我们竭诚为您服务</p>
+	</div>
+	<div class="fill_30"></div>
+	<ul class="container_1200">
+		<li class="step1">
+			<div class="icon_container"><span class="icon"></span></div>
+			<div class="title">联系电话</div>
+			<div class="desc">{$settings['company_tel']}</div>
+		</li>
+		<li class="step2"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$settings['company_qq']}&site=qq&menu=yes">
+			<div class="icon_container"><span class="icon"></span></div>
+			<div class="title">QQ咨询</div>
+			<div class="desc">{$settings['company_qq']}</div>
+		</a></li>
+		<li class="step3">
+			<div class="icon_container"><span class="icon"></span></div>
+			<div class="title">公司地址</div>
+			<div class="desc">{$settings['company_address']}</div>
+		</li>
+		<li class="step3">
+			<div class="icon_container"><span class="icon"></span></div>
+			<div class="title">电子邮箱</div>
+			<div class="desc">{$settings['company_email']}</div>
+		</li>
+		<div class="clear"></div>
+	</ul>
+</div>
+{include file="public/footer" /}

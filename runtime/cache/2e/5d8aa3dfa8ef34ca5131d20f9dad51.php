@@ -1,0 +1,3 @@
+<?php
+//000000000000a:12:{s:9:"site_name";s:11:"Nuts videos";s:4:"logo";s:61:"/uploads/images/20200927/6b75db96bc6acd60f0cb5d3b0ecb36a9.png";s:4:"file";s:0:"";s:3:"icp";s:22:"苏ICP备xxxxxxxxxx号";s:4:"copy";s:51:"Copyright © 1998 - 2020 Xxxx. All Rights Reserved.";s:15:"site_statistice";s:0:"";s:9:"head_html";s:0:"";s:11:"site_status";s:1:"0";s:17:"site_closedreason";s:0:"";s:12:"search_model";s:0:"";s:6:"editor";s:8:"umeditor";s:11:"wap_enabled";s:1:"0";}
+?>

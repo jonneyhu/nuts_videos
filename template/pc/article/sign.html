@@ -1,0 +1,67 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="second_banner sign_banner" style="background-image:url({$category['image_url']})">
+	<img src="{$category['image_url']}" alt="{$category['name']}">
+	<a target="_blank" href="{$settings['company_kefu_btn']}" class="trans_0_2">我要签约</a>
+</div>
+<!-- BANNER结束 -->
+<div class="page_block sign_page">
+	<div class="container_1200">
+		<div class="page_block_title">
+			<h3>最新签约</h3>
+			<p>以策略创意为核心，提升企业品牌商业价值是我们的根本目的</p>
+		</div>
+		<div class="fill_30"></div>
+		<?php $category_id =  input('param.category_id'); ?>
+		{lz:articles category_id="$category_id" var_page="page" limit="6" order="create_time desc"}
+		<ul class="ajax_lists_container">
+			{volist name="data" id="v" mod="2"}
+			<li class="{eq name='mod' value='1'}right{/eq}" ><a href="{$v['url']}">
+				<div class="text trans_0_1">
+					<h4 class="text_ellipsis trans_0_1">{$v['title']}</h4>
+					<p class="desc trans_0_1">{$v['description']}</p>
+				</div>
+				<div class="pic"><img src="{$v['image_url']|thumb=370,270,3}" alt="{$v['title']}"></div>
+			</a></li>
+			{/volist}
+		</ul>
+		<div class="pages_container">{$pages}</div>
+		{/lz:articles}
+		<div class="list_more"><span>加载更多</span></div>
+	</div>
+</div>
+<script type="text/javascript">
+var page = 1;
+$('.list_more').click(function(){
+	$(this).find('span').addClass('loading').text('加载中...');
+	page ++;
+	var param = {
+		category_id : "{$category_id}",
+		sort : "create_time",
+		limit : 6,
+		page : page,
+		thumb: '370,270,3'
+	};
+	$.get('{:url("get_ajax_lists")}',param,function(ret){
+		if(ret && ret.length > 0){
+			var html = '';
+			$.each(ret,function(i,item){
+				var class_name = (i%2==1)?'right':'';
+				html += '<li class="'+ class_name +'"><a href="'+ item.url +'">'
+					+		'<div class="text trans_0_1">'
+					+			'<h4 class="text_ellipsis trans_0_1">'+ item.title +'</h4>'
+					+			'<p class="desc trans_0_1">'+ item.description +'</p>'
+					+		'</div>'
+					+		'<div class="pic"><img src="'+ item.thumb +'" alt="'+ item.title +'"></div>'
+					+	'</a></li>'
+			})
+			$('.ajax_lists_container').append(html);
+			$('.list_more').find('span').removeClass('loading').text('加载更多');
+		}else{
+			$('.list_more').find('span').removeClass('loading').text('没有更多了');
+		}
+	})
+});
+
+</script>
+{include file="public/footer" /}

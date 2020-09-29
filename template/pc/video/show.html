@@ -1,0 +1,58 @@
+{include file="public/header" /}
+<div class="fill_70"></div>
+
+<div class="video_show_page">
+
+    <div class="container_1200">
+
+        <div class="fill_30"></div>
+        <div class="video_player_collection">
+            <div class="video_player">
+                <video src=""></video>
+            </div>
+            <div class="video_collection">
+                <div class="title">{$data['title']}</div>
+                <div class="collection_ul">
+                    <?php foreach($collections as $k => $v){ ?>
+                    <div class="collection_li" data-collection_id="{$v['id']}">{$v['num']}：{$v['title']}</div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <div class="video_deac">
+            <div class="title">《{$data['title']}》简介</div>
+            <div class="desc">{$data['description']}</div>
+        </div>
+        <div class="fill_50"></div>
+    </div>
+
+</div>
+<script>
+    function play_collection(collection_id) {
+        var url = '{:url("get_collection_info")}';
+        var param = {
+            collection_id : collection_id
+        }
+        $.post(url,param,function (ret) {
+            if(ret.code == 200){
+                $('.video_player video').attr('src',ret.data.video_url).get(0).play();
+
+            }else{
+                alert(ret.msg);
+            }
+        })
+    }
+
+    $('.collection_li').click(function () {
+        var collection_id = $(this).attr('data-collection_id');
+        $('.collection_li').removeClass('on');
+        $(this).addClass('on');
+        play_collection(collection_id)
+    })
+
+    $('.collection_li:first').addClass('on');
+    var collection_id = $('.collection_li:first').attr('data-collection_id');
+    play_collection(collection_id)
+
+</script>
+{include file="public/footer" /}

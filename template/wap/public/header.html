@@ -1,0 +1,53 @@
+{include file="public/toper" /}
+<body>
+<!-- 头部 -->
+<header class="header">
+	<div class="header_container trans_0_1">
+		<div class="container_15">
+			<div class="logo"><a href="/"><img src="__TEMPLATE__static/images/logo.png" alt="{$settings['site_name']}"></a></div>
+			<div class="menu_btn"><img src="__TEMPLATE__static/images/menu_icon.png" alt="菜单"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	var p=0,t=0;
+	$(window).scroll(function(e) {
+	  	var top = $(document).scrollTop();
+	  	if(top>51){
+		    p = $(this).scrollTop();
+		    console.log(t<=p)
+		    if(t<=p){
+		    	$('.header_container').addClass('header_container_hide');
+		    }else{
+		    	$('.header_container').removeClass('header_container_hide');
+			}
+		    setTimeout(function(){t = p;},0);
+	  	}else{
+		    $('.header_container').removeClass('header_container_hide');
+	  	} 
+	});
+	</script>
+</header>
+<div class="nav_container_mask trans_0_2">
+<div class="nav_container trans_0_2">
+	<ul>
+		<a href="/"><img class="nav_logo" src="__TEMPLATE__static/images/nav_logo.png" alt="{$settings['site_name']}"></a>
+		<a href="/"><li class="<?php if(!$category){ echo 'on';} ?>">首页</li></a>
+		{volist name="categorys[0][0]" id="vo"}
+	  	{if condition="$categorys[$vo]['is_menu'] == 1"}
+	  	<a href="{$categorys[$vo]['url']}"><li class="<?php if($vo==$top_category['id']){ echo 'on';} ?>">{$categorys[$vo]['name']}</li></a>
+	  	{/if}
+	  	{/volist}
+	  	<a href="{$categorys[35]['url']}"><li class="<?php if($vo==$top_category['id']){ echo 'on';} ?>">{$categorys[$vo]['name']}</li></a>
+	</ul>
+</div>
+</div>
+<script type="text/javascript">
+$('.menu_btn').click(function(){
+	$('.nav_container_mask').addClass('show');
+	$('.nav_container').addClass('show');
+})
+$('.nav_container_mask').click(function(){
+	$('.nav_container_mask').removeClass('show');
+	$('.nav_container').removeClass('show');
+})
+</script>

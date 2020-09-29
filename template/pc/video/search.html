@@ -1,0 +1,109 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            {lz:focus type="1"}
+            {volist name="data" id="value"}
+            <div class="swiper-slide"><a href="{$value['url']}"  data-background="{$value['image_url']}" class="swiper-lazy" style="background-size: cover"></a></div>
+            {/volist}
+            {/lz:focus}
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable :true,
+            },
+            autoplay:true,
+            loop : true,
+            effect : 'fade',
+            lazy: {
+                loadPrevNext: false,
+            },
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('.event-list a').hover(function(){
+            $(this).addClass('event-in');
+        },function(){
+            $(this).removeClass('event-in');
+        });
+    </script>
+
+</div>
+<!-- BANNER结束 -->
+<?php $keywords =  input('param.keywords'); ?>
+<div class="video_cate">
+    <div class="container_1200" style="border-bottom: 1px solid #eee;">
+        <ul class="nav">
+            <li class="on"><a href="javascript:;">”{$keywords}“ 搜索结果</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="video_list_page">
+    <div class="container_1200">
+        <div class="fill_50"></div>
+        <ul class="ajax_lists_container video_list_container">
+        </ul>
+        <div class="fill_50"></div>
+        <div class="list_more"><span>加载更多</span></div>
+        <div class="fill_50"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var page = 0;
+    function get_ajax_lists() {
+        page ++;
+        var param = {
+            keywords : "{$keywords}",
+            sort : "create_time",
+            limit : 30,
+            page : page,
+            thumb: '260,360,3'
+        };
+        $.get('{:url("get_ajax_lists")}',param,function(ret){
+            if(ret && ret.length > 0){
+                var html = '';
+                $.each(ret,function(i,item){
+                    html += '<li class="trans_0_1"><a href="'+ item.url +'">'
+                        +		'<div class="pic"><img src="'+ item.thumb +'" alt="'+ item.title +'"></div>'
+                        +		'<div class="text trans_0_1">'
+                        +			'<h4 class="text_ellipsis trans_0_1">'+ item.title +'</h4>'
+                        +			'<p class="desc trans_0_1 text_ellipsis">'+ item.description +'</p>'
+                        +		'</div>'
+                        +	'</a></li>'
+                });
+                html += '<div class="clear"></div>';
+                $('.ajax_lists_container').append(html);
+                $('.list_more').find('span').removeClass('loading').text('加载更多');
+            }else{
+                $('.list_more').find('span').removeClass('loading').text('没有更多了');
+            }
+        })
+    }
+
+    $(this).find('span').addClass('loading').text('加载中...');
+    get_ajax_lists();
+
+    $('.list_more').click(function(){
+        $(this).find('span').addClass('loading').text('加载中...');
+        get_ajax_lists();
+    });
+
+</script>
+{include file="public/footer" /}

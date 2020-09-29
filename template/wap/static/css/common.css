@@ -1,0 +1,54 @@
+/* 公共样式 */
+*{margin:0;padding:0;} /* 所有标签内外边距为0 */
+html,body{background-color:#fff;min-height: 100%;min-width: 320px;max-width: 750px;font-family: "Microsoft YaHei","simsun","Helvetica Neue", Arial, Helvetica, sans-serif;font-size:14px;}
+ul,li,ol,dt,dd,dl{list-style: none;} /* 清除列表的默认样式 */
+input,textarea,select,button{outline: none;} /* 清除表单按钮的轮廓线 */
+img{border:none;}/* 清除图片边框 */
+a{color:#333;text-decoration:none;} /*链接-颜色*/
+em{font-style: normal;}
+.container_1200{width: 1200px;margin:0 auto;position: relative;}/* 1200px容器并且居中，相对定位 */
+.container_1100{width: 1100px;margin:0 auto;position: relative;}/* 1100px容器并且居中，相对定位 */
+.container_1000{width: 1000px;margin:0 auto;position: relative;}/* 1000px容器并且居中，相对定位 */
+.container_25{margin:0 25px;position: relative;}
+.container_20{margin:0 20px;position: relative;}
+.container_15{margin:0 15px;position: relative;}
+.container_10{margin:0 10px;position: relative;}
+.container_5{margin:0 5px;position: relative;}
+.container_padding_15{padding:0 15px;position: relative;}
+.hidden{display: none;}/* 隐藏元素 */
+.block{display: block;}/* 块级元素 */
+.inlinek{display: inline}/* 内联元素 */
+.inline_block{display: inline-block;}/* 行内块元素 */
+/* 清除浮动 */
+.clear{height:0;clear: both;}/* 清除浮动 */
+.fill_1{clear: both;height: 1px}/* 填充1px并且清除浮动 */
+.fill_2{clear: both;height: 2px}
+.fill_5{clear: both;height: 5px}
+.fill_10{clear: both;height: 10px}
+.fill_20{clear: both;height: 20px}
+.fill_30{clear: both;height: 30px}
+.fill_40{clear: both;height: 40px}
+.fill_50{clear: both;height: 50px}
+.fill_60{clear: both;height: 60px}
+.fill_70{clear: both;height: 70px}
+.fill_80{clear: both;height: 80px}
+.fill_90{clear: both;height: 90px}
+.fill_100{clear: both;height: 100px}/* 填充100px并且清除浮动 */
+/***float浮动***/
+.fl{float:left}
+.fr{float:right}
+/***动画过渡时间***/
+.trans_0_1{transition: all 0.1s linear;}/* 过渡时间0.1秒 */
+.trans_0_2{transition: all 0.2s linear;}/* 过渡时间0.2秒 */
+.trans_0_3{transition: all 0.3s linear;}/* 过渡时间0.3秒 */
+.trans_0_5{transition: all 0.5s linear;}/* 过渡时间0.5秒 */
+.trans_0_8{transition: all 0.8s linear;}/* 过渡时间0.8秒 */
+.trans_1_0{transition: all 1.0s linear;}/* 过渡时间0.8秒 */
+.trans_1_5{transition: all 1.5s linear;}/* 过渡时间1.5秒 */
+.trans_2_0{transition: all 2.0s linear;}/* 过渡时间2.0秒 */
+.border-box{box-sizing:border-box;}
+/*文字左右对齐*/
+.text_left{text-align:left;}
+.text_center{text-align:center;}
+.text_right{text-align:right;}
+.text_ellipsis{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}/* 超出部分显示省略号 */

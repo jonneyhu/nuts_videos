@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo['title']}</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ZA92E7akf8ESCUuCHlE1Y0CenCLMlaLa"></script>
+<script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<style type="text/css">
+	body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+	#allmap {height: 100%;width:100%;overflow: hidden;}
+	#result {width:100%;font-size:12px;}
+	dl,dt,dd,ul,li{margin:0;padding:0;list-style:none;}
+	dt{font-size:14px;font-family:"微软雅黑";font-weight:bold;border-bottom:1px dotted #000;padding:5px 0 5px 5px;margin:5px 0;}
+	dd{padding:5px 0 0 5px;}	
+	li{line-height:28px;}
+	</style>
+<body>
+<div id="allmap"></div>
+
+<script type="text/javascript">
+	// 百度地图API功能
+    var map = new BMap.Map('allmap');
+    var poi = new BMap.Point({$settings["company_point"]});
+    map.centerAndZoom(poi, 16);
+ 	 // 启用滚轮放大缩小，默认禁用
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+    //禁止拖拽
+  	map.disableScrollWheelZoom();
+	var  mapStyle ={ 
+	        features: ["road", "building","water","land"],//隐藏地图上的poi
+	        style : "normal"  //设置地图风格为高端黑
+	    }
+	map.setMapStyle(mapStyle);
+    var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+                    '<img src="__TEMPLATE__/static/images/map_logo.png" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+                    '电话：{$settings["company_tel"]}' + '<br>' +
+                    '邮箱：{$settings["company_email"]}' + '<br>' +
+                    '地址：{$settings["company_address"]}' +
+                  '</div>';
+
+    //创建检索信息窗口对象
+    var searchInfoWindow = null;
+	searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+			title  : "{$settings['company_name']}",      //标题
+			width  : 290,             //宽度
+			height : 105,              //高度
+			panel  : "panel",         //检索结果面板
+			enableAutoPan : true,     //自动平移
+			searchTypes   :[]
+		});
+   	//设置标注图片
+ 	var icon = new BMap.Icon("__TEMPLATE__/static/images/icon_map.png", new BMap.Size(80,98), {'anchor':new BMap.Size(40,98)});
+  	var marker = new BMap.Marker(poi,{icon:icon});
+	map.addOverlay(marker);              // 将标注添加到地图中
+     marker.addEventListener("click", function(e){
+	    searchInfoWindow.open(marker);
+    })
+    //设置主题
+    map.setMapStyle({style:'grayscale'});
+
+</script>
+</body>
+</html>

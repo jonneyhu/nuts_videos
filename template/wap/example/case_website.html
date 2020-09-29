@@ -1,0 +1,74 @@
+{include file="public/header" /}
+
+
+<div class="second_nav_container second_nav_black">
+	<ul class="container_10">
+	{volist name="$second_categorys" id="v"}
+		{if condition="$categorys[$v['id']]['is_menu'] == 1"}
+      	<li class="<?php if($v['id']==$category['id']){ echo 'on';} ?>"><a href="{$v['url']}">{$v['name']}</a></li>
+      	{/if}
+    {/volist}
+	</ul>
+</div>
+
+<div class="case_website_page">
+	<div class="case_website_liste_container">
+		<?php $category_id =  input('param.category_id'); ?>
+		{lz:examples category_id="$category_id" var_page="page" limit="6" order="create_time desc"}
+		<ul class="container_15 ajax_lists_container">
+			{volist name="data" id="v" mod="2"}
+			<li><a href="{$v['url']}">
+				<div class="pic"><img src="{$v['image_url']|thumb=560,420,3}" alt="{$v['title']}"></div>
+				<div class="text">
+					<p class="title">{$v['title']}</p>
+					<p class="type">{$v['category_name']}</p>
+				</div>
+			</a></li>
+			{/volist}
+		</ul>
+	</div>
+	<div class="fill_5"></div>
+	<div class="pages_container">{$pages}</div>
+	{/lz:examples}
+	<div class="list_more"><span>加载更多</span></div>
+</div>
+<script type="text/javascript">
+//保证二菜单选中状态下可见
+var second_nav_on_left = $('.second_nav_container .on').position().left;
+second_nav_on_left = second_nav_on_left - (($('.second_nav_container ul').width()-$('.second_nav_container .on').width())/2);
+$('.second_nav_container ul').animate({scrollLeft:second_nav_on_left},0);
+</script>
+<script type="text/javascript">
+var page = 1;
+$('.list_more').click(function(){
+	$(this).find('span').addClass('loading').text('加载中...');
+	page ++;
+	var param = {
+		category_id : "{$category_id}",
+		sort : "create_time",
+		limit : 6,
+		page : page,
+		thumb: '560,420,3'
+	};
+	$.get('{:url("get_ajax_lists")}',param,function(ret){
+		if(ret && ret.length > 0){
+			var html = '';
+			$.each(ret,function(i,item){
+				html +=	'<li><a href="'+ item.url +'">'
+					+		'<div class="pic"><img src="'+ item.thumb +'" alt="'+ item.title +'"></div>'
+					+		'<div class="text">'
+					+			'<p class="title">'+ item.title +'</p>'
+					+			'<p class="type">'+ item.category_name +'</p>'
+							'</div>'
+					+	'</a></li>'
+			})
+			$('.ajax_lists_container').append(html);
+			$('.list_more').find('span').removeClass('loading').text('加载更多');
+		}else{
+			$('.list_more').find('span').removeClass('loading').text('没有更多了');
+		}
+	})
+});
+</script>
+
+{include file="public/footer" /}

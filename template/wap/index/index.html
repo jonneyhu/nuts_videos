@@ -1,0 +1,308 @@
+{include file="public/header" /}
+<!-- banner -->
+<div class="swiper-container index_banner">
+	<div class="swiper-wrapper">
+		{lz:focus type="2"}
+		{volist name="data" id="value"}
+		<div class="swiper-slide"><a href="{$value['url']}"><img src="{$value['image_url']}"></a></div>
+		{/volist}
+		{/lz:focus}
+	</div>
+	<div class="swiper-pagination"></div>
+</div>
+<script>
+var mySwiper = new Swiper('.index_banner', {
+	autoplay: true,//可选选项，自动滑动
+	loop : true,
+	autoHeight : true,
+	pagination: {
+	    el: '.swiper-pagination',
+	},
+
+})
+</script>
+<!-- 产品 -->
+<div class="index_product_container">
+	<div class="container_15">
+		<div class="index_block_title">
+			<div class="fill_30"></div>
+			<div class="title">产品&服务项目</div>
+			<div class="desc">以策略创意为核心，提升企业品牌商业价值是我们最根本的目的</div>
+			<div class="fill_20"></div>
+		</div>
+	</div>
+	<div class="container_15">
+		<ul class="index_product_list_container">
+			<li><a href="{$categorys[1]['url']}">
+				<div class="icon"><img src="__TEMPLATE__static/images/index_product_website_icon.png"></div>
+				<div class="title">高端网站建设</div>
+				<div class="desc">专属高端定制，好看+好用+提高转化率</div>
+			</a></li>
+			<li><a href="{$categorys[2]['url']}">
+				<div class="icon"><img src="__TEMPLATE__static/images/index_product_weixin_icon.png"></div>
+				<div class="title">微信产品</div>
+				<div class="desc">畅享9亿微信用户流量红利</div>
+			</a></li>
+			<li><a href="{$categorys[4]['url']}">
+				<div class="icon"><img src="__TEMPLATE__static/images/index_product_app_icon.png"></div>
+				<div class="title">移动APP</div>
+				<div class="desc">掌控智能终端时代，布局移动互联网</div>
+			</a></li>
+			<li><a href="javascript:;">
+				<div class="icon"><img src="__TEMPLATE__static/images/index_product_other_icon.png"></div>
+				<div class="title">增值业务</div>
+				<div class="desc">更多服务应有尽有</div>
+			</a></li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+</div>
+<!-- 案例 -->
+<div class="index_case_container">
+	<div class="container_15">
+		<div class="index_block_title">
+			<div class="fill_30"></div>
+			<div class="title">案例展示</div>
+			<div class="desc">我们力求在视觉艺术与商业价值体现上为客户提供两者并重的作品品质</div>
+		</div>
+	</div>
+	<div class="index_second_nav_container">
+		<ul class="case_category_title">
+			<li class="trans_0_1 on">{$categorys[17]['name']}</li>
+			<li class="trans_0_1">{$categorys[18]['name']}</li>
+			<li class="trans_0_1">{$categorys[19]['name']}</li>
+			<li class="trans_0_1">{$categorys[20]['name']}</li>
+			<li class="trans_0_1">{$categorys[14]['name']}</li>
+			<li class="trans_0_1">{$categorys[15]['name']}</li>
+			<li class="trans_0_1">{$categorys[16]['name']}</li>
+		</ul>
+	</div>
+	<div class="index_case_list_contaienr case_category_contaienr">
+		<ul class="on case_website_container">
+			{lz:examples limit="6" category_id="17" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[17]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="18" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[18]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="19" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[19]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="20" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[20]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="14" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[14]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="15" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[15]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+		<ul class="case_website_container">
+			{lz:examples limit="6" category_id="16" order="is_recommend desc,create_time desc"}
+			{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}">
+				<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=280,210,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+				<div class="title text_ellipsis">{$vo['title']}</div>
+			</a></li>
+			{/volist}
+			{/lz:examples}
+			<div class="fill_30"></div>
+			<div class="index_more"><a href="{$categorys[16]['url']}">Read More</a></div>
+			<div class="fill_30"></div>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+//保证二菜单选中状态下可见
+
+</script>
+<script type="text/javascript">
+var second_nav_li_left = new Array();
+$('.case_category_title li').each(function(){
+	var	index = $('.case_category_title li').index(this);
+	second_nav_li_left[index] = $(this).position().left;
+})
+$('.case_category_title li').click(function(){
+	var	index = $('.case_category_title li').index(this);
+	$('.case_category_title li').removeClass('on');
+	$(this).addClass('on');
+	$('.case_category_contaienr ul').removeClass('on');
+	$('.case_category_contaienr ul:eq('+index+')').addClass('on');
+	//保证二菜单选中状态下可见居中
+	var second_nav_on_left = second_nav_li_left[index] - (($('.case_category_title').width()-$('.case_category_title .on').width())/2)+20;
+	$('.case_category_title').animate({scrollLeft:second_nav_on_left},100);
+})
+</script>
+<!-- 优势 -->
+<div class="index_youshi_container">
+	<div class="container_15">
+		<div class="index_block_title index_block_title_white">
+			<div class="fill_30"></div>
+			<div class="title">我们的优势</div>
+			<div class="desc">超过三千多次合作，为一千多家企业实现商业与技术的完美融合</div>
+			<div class="fill_20"></div>
+		</div>
+	</div>
+	<div class="">
+		<ul class="youshi_list_container">
+			<div class="fill_10"></div>
+			<li><p class="title">6</p><p class="desc">年建站经验</p></li>
+			<li><p class="title">28</p><p class="desc">家政府单位认可</p></li>
+			<li><p class="title">56</p><p class="desc">家上市公司的选择</p></li>
+			<div class="fill_20"></div>
+			<li><p class="title">800<span>+</span></p><p class="desc">品牌客户的选择</p></li>
+			<li><p class="title">5000<span>+</span></p><p class="desc">企业客户的选择</p></li>
+		</ul>
+	</div>
+	<div class="fill_40"></div>
+</div>
+<!-- 签约 -->
+<div class="index_sign_container">
+	<div class="container_15">
+		<div class="index_block_title">
+			<div class="fill_30"></div>
+			<div class="title">最新签约</div>
+			<div class="desc">我们用心思考，用心设计，用心体验，用心做好每个细节</div>
+			<div class="fill_20"></div>
+		</div>
+	</div>
+	<div class="container_15">
+		<ul class="index_sign_list_container">
+		{lz:articles limit="9" category_id="10" order="is_recommend desc,create_time desc"}
+		{volist name="data" id="vo"}
+			<li><a href="{$vo['url']}"><div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=270,180,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div></a></li>
+		{/volist}
+		{/lz:articles}
+		</ul>
+	</div>
+	<div class="fill_30"></div>
+		<div class="index_more"><a href="{$categorys[10]['url']}">Read More</a></div>
+	<div class="fill_30"></div>
+</div>
+<!-- 新闻中心 -->
+<div class="index_news_container">
+	<div class="container_15">
+		<div class="index_block_title index_block_title_white">
+			<div class="fill_30"></div>
+			<div class="title">新闻中心</div>
+			<div class="desc">最齐全的行业指数，最热门的新闻资讯</div>
+			<div class="fill_20"></div>
+		</div>
+	</div>
+	<div class="container_15">
+		<ul class="index_news_second_nav">
+			{volist name="categorys[0][11]" id="vo"}
+			<li class="{if $i==1}on{/if}"><div><p>{$categorys[$vo]['name']}</p></div></li>
+			{/volist}
+		</ul>
+		<div class="fill_50"></div>
+	</div>
+	<div class="container_15">
+		<div class="index_news_category_contaienr">
+			{volist name="categorys[0][11]" id="category_id"}
+			<ul class="index_news_list_container {if $i==1}on{/if}">
+				{lz:articles limit="6" category_id="$category_id" order="is_recommend desc,create_time desc"}
+				{volist name="data" id="vo" key="k"}
+				{if $k==1 }
+				<li class="first"><a href="{$vo['url']}">
+					<div class="pic"><img class="lazy" data-original="{$vo['image_url']|thumb=150,90,3}" src="__TEMPLATE__static/images/loading.jpg" alt="{$vo['title']}"></div>
+					<div class="title">{$vo['title']}</div>
+					<div class="desc">{$vo['description']}</div>
+				</a></li>
+				{else}
+				<li><a href="{$vo['url']}">
+					<div class="title text_ellipsis">{$vo['title']}</div>
+					<div class="date">{$vo['create_time']|format_datetime=1,'m-d'}</div>
+				</a></li>
+				{/if}
+				{/volist}
+				{/lz:articles}
+				<div class="fill_30"></div>
+					<div class="index_more"><a href="{$categorys[$category_id]['url']}">Read More</a></div>
+				<div class="fill_30"></div>
+			</ul>
+			{/volist}
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('.index_news_second_nav li').click(function(){
+	var	index = $('.index_news_second_nav li').index(this);
+	$('.index_news_second_nav li').removeClass('on');
+	$(this).addClass('on');
+	$('.index_news_category_contaienr ul').removeClass('on');
+	$('.index_news_category_contaienr ul:eq('+index+')').addClass('on');
+})
+</script>
+
+
+<script type="text/javascript" src="__TEMPLATE__static/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+    $("img.lazy").lazyload({
+    	effect: "fadeIn",
+    	threshold :100,
+    	skip_invisible : false
+    });
+});
+</script>
+{include file="public/footer" /}

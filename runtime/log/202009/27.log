@@ -1,0 +1,72 @@
+---------------------------------------------------------------
+[ 2020-09-27T17:25:39+08:00 ] 192.168.0.119 192.168.0.108 GET /
+[ info ] 192.168.0.119:8006/ [运行时间：0.195914s][吞吐率：5.10req/s] [内存消耗：2,774.43kb] [文件加载：58]
+[ error ] [8]未定义数组索引: title_add[/www/wwwroot/video.com/application/index/controller/Init.php:50]
+[ error ] [8]未定义数组索引: title_add[/www/wwwroot/video.com/application/index/controller/Init.php:51]
+[ error ] [8]未定义数组索引: keywords[/www/wwwroot/video.com/application/index/controller/Init.php:52]
+[ error ] [8]未定义数组索引: description[/www/wwwroot/video.com/application/index/controller/Init.php:53]
+[ error ] [8]未定义数组索引: company_kefu_global[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:20]
+[ error ] [8]未定义变量: category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:85]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [8]未定义变量: top_category[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:87]
+[ error ] [2]Illegal offset type[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:107]
+[ error ] [2]Illegal offset type[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:107]
+[ error ] [2]Illegal offset type[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:107]
+[ error ] [2]Illegal offset type[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:107]
+[ error ] [2]Illegal offset type[/www/wwwroot/video.com/runtime/temp/8c4fa03a07de027e817e313271953583.php:107]
+---------------------------------------------------------------
+[ 2020-09-27T17:25:53+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.112674s][吞吐率：8.88req/s] [内存消耗：2,680.24kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:27:19+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/setting/base.html
+[ info ] 192.168.0.119:8006/admin/setting/base.html [运行时间：0.092098s][吞吐率：10.86req/s] [内存消耗：2,724.99kb] [文件加载：56]
+[ error ] [8]未定义数组索引: search_model[/www/wwwroot/video.com/application/admin/controller/Setting.php:20]
+---------------------------------------------------------------
+[ 2020-09-27T17:29:33+08:00 ] 192.168.0.119 192.168.0.108 GET /admin/index/index.html
+[ info ] 192.168.0.119:8006/admin/index/index.html [运行时间：0.086862s][吞吐率：11.51req/s] [内存消耗：2,859.37kb] [文件加载：57]
+[ error ] [0]语法解析错误: syntax error, unexpected '}'[/www/wwwroot/video.com/runtime/temp/fc1baebdce00f10a5ca847666bcc3ed2.php:25]
+---------------------------------------------------------------
+[ 2020-09-27T17:29:42+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.024008s][吞吐率：41.65req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:30:16+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.023226s][吞吐率：43.06req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:30:17+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.052840s][吞吐率：18.93req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:30:18+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.110470s][吞吐率：9.05req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:30:26+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.019101s][吞吐率：52.35req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:30:42+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.025007s][吞吐率：39.99req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:31:50+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.024454s][吞吐率：40.89req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:33:48+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.028245s][吞吐率：35.40req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:33:50+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.024409s][吞吐率：40.97req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]
+---------------------------------------------------------------
+[ 2020-09-27T17:33:53+08:00 ] 192.168.0.119 192.168.0.108 POST /admin/index/ajax_system_info.html
+[ info ] 192.168.0.119:8006/admin/index/ajax_system_info.html [运行时间：0.025918s][吞吐率：38.58req/s] [内存消耗：2,680.34kb] [文件加载：55]
+[ error ] [2]mysqli_get_server_info() expects exactly 1 parameter, 0 given[/www/wwwroot/video.com/application/admin/controller/Index.php:26]

@@ -1,0 +1,33 @@
+{include file="public/header" /}
+<!-- BANNER开始 -->
+<div class="second_banner sign_banner" style="background-image:url({$top_category['image_url']})">
+	<img src="{$top_category['image_url']}" alt="{$category['name']}">
+	<a target="_blank" href="{$settings['company_kefu_btn']}" class="trans_0_2">我也要</a>
+</div>
+<!-- BANNER结束 -->
+<!-- 面包屑导航开始 -->
+<div class="crumbs_container">
+	<div class="container_1200">
+		<a href="/" class="home_icon"></a>{$breadcrumb}
+	</div>
+</div>
+
+<div class="page_block content_page">
+	<div class="container_1200">
+		<h1>{$data['title']}</h1>
+		<div class="date_hits"><span>作者：{$settings['site_author']}</span><span>发布时间：{$data['create_time']|format_datetime=1,'Y-m-d'}</span><span>浏览量：{$data['hits']}</span></div>
+		<div class="content">{$data['content']}</div>
+      	{if !empty($data['website_link'])}
+      	<div class="case-show-view-btn">
+          <a href="{$data['website_link']}" target="_blank" class="case-show-link">
+            <div class="img-block">
+              <img src="__TEMPLATE__static/images/case-detail-view-btn.png" alt="img">
+            </div>
+            <p class="case-show-text">访问网站</p>
+          </a>
+      	</div>
+      	{/if}
+	</div>
+</div>
+
+{include file="public/footer" /}
